@@ -195,43 +195,43 @@
           });
 
         var seedAnimate = eval(
-          Jscex.compile("async", function () {
+          jscex.compile("async", function () {
             seed.draw();
             while (hold) {
-              $await(Jscex.Async.sleep(10));
+              $await(jscex.Async.sleep(10));
             }
             while (seed.canScale()) {
               seed.scale(0.95);
-              $await(Jscex.Async.sleep(10));
+              $await(jscex.Async.sleep(10));
             }
             while (seed.canMove()) {
               seed.move(0, 2);
               foot.draw();
-              $await(Jscex.Async.sleep(10));
+              $await(jscex.Async.sleep(10));
             }
           })
         );
 
         var growAnimate = eval(
-          Jscex.compile("async", function () {
+          jscex.compile("async", function () {
             do {
               tree.grow();
-              $await(Jscex.Async.sleep(10));
+              $await(jscex.Async.sleep(10));
             } while (tree.canGrow());
           })
         );
 
         var flowAnimate = eval(
-          Jscex.compile("async", function () {
+          jscex.compile("async", function () {
             do {
               tree.flower(2);
-              $await(Jscex.Async.sleep(10));
+              $await(jscex.Async.sleep(10));
             } while (tree.canFlower());
           })
         );
 
         var moveAnimate = eval(
-          Jscex.compile("async", function () {
+          jscex.compile("async", function () {
             tree.snapshot("p1", 240, 0, 610, 680);
             while (tree.move("p1", 500, 0)) {
               foot.draw();
@@ -244,19 +244,19 @@
               .parent()
               .css("background", "url(" + tree.toDataURL("image/png") + ")");
             canvas.css("background", "#ffe");
-            $await(Jscex.Async.sleep(300));
+            $await(jscex.Async.sleep(300));
             canvas.css("background", "none");
           })
         );
 
         var textAnimate = eval(
-          Jscex.compile("async", function () {
+          jscex.compile("async", function () {
             $("#code").show().typewriter();
           })
         );
 
         var runAsync = eval(
-          Jscex.compile("async", function () {
+          jscex.compile("async", function () {
             $await(seedAnimate());
             $await(growAnimate());
             $await(flowAnimate());
