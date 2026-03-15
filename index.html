@@ -55,11 +55,11 @@
             <span class="say">Hy vọng là 🌟</span
             ><br />
             <span class="say"
-              >Tuổi mới kỹ năng phép cũng tăng lên 💕</span
+              >Tuổi mới kỹ năng phép cũng tăng 💕</span
             ><br />
-            <span class="say">Để còn gánh team nữa nhennn ❤️</span><br />
-            <span class="say">Oke, have a nice day 🥰</span><br />
-            <span class="say">--C.Minhh-- </span
+            <span class="say">Để còn gánh team dưới nữa nhenn ❤️</span><br />
+            <span class="say">Okee, have a nice dayyy🥰</span><br />
+            <span class="say">--C.Minhh--</span
             ><br />
           </div>
         </div>
@@ -170,15 +170,15 @@
         var foot = tree.footer;
         var hold = 1;
 
+        // Make it clear the canvas is clickable (so user knows to click the heart)
+        canvas.css("cursor", "pointer");
+
         canvas
           .click(function (e) {
             playAudio();
-            var offset = canvas.offset(),
-              x,
-              y;
-            x = e.pageX - offset.left;
-            y = e.pageY - offset.top;
-            if (seed.hover(x, y)) {
+            // Allow the first click anywhere on the canvas to start the animation.
+            // This makes it reliable even if the heart hit detection misses.
+            if (hold) {
               hold = 0;
               canvas.unbind("click");
               canvas.unbind("mousemove");
